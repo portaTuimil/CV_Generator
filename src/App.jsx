@@ -17,47 +17,8 @@ function Navbar(){
     </nav>
   )
 }
-let x = {}
-function Container(){
-  const [user, setUser] = useState({
-    userName: 'Someone',
-    email: 'example@gmail.com',
-    location:'Spain',
-    phone:'123 45 67 89',
-    link:'https://github.com/portaTuimil',
-    shortDesc:'A Junior Software Dev',
-  });
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setUser(prevState => ({
-        ...prevState,
-        [name]: value
-    }));
-    x = user;
-  };
-
-  return(
-    <div className="container">
-      <div className="left-container">
-      <div className="panel" id='panel1'>
-        - Personal Data
-      </div>
-        <form action="">
-            <label>Name: </label> <input type="text"  value={user.userName} name='userName' onChange={handleChange}/><br></br><br></br>
-            <label>Email: </label> <input type="text"  value={user.email} name='email' onChange={handleChange}/> <br></br><br></br>
-            <label>Location: </label> <input type="text"  value={user.location} name='location' onChange={handleChange}/><br></br><br></br>
-            <label>Phone Nº: </label> <input type="text"  value={user.phone} name='location' onChange={handleChange}/><br></br><br></br>
-            <label>Link: </label> <input type="text"  value={user.link} name='link' onChange={handleChange}/><br></br><br></br>
-            <label>Short Desc.: </label> <input type="text"  value={user.shortDesc} name='shortDesc' onChange={handleChange}/><br></br><br></br>
-        </form>
-      </div>
-      <CurriculumVitae {...user}></CurriculumVitae>
-    </div>)
-}
 
 function CurriculumVitae(user){
-  
   return(
       <div className="right-container">
         <div className="presentation">
@@ -74,11 +35,103 @@ function CurriculumVitae(user){
         </div>
         <div className="cvbody">
             <div className="educationTitle"><p>Education:</p></div>
+            <div className="education">{user.education}</div>
+            <div className="educationTitle"><p>Experience:</p></div>
+            <div className="education">{user.experience}</div>
         </div>
       </div>
   )
 }
 
+//Container
+function Container(){
+  const [selected, setSelected] = useState('first');
 
+  const [user, setUser] = useState({
+    userName: 'Someone',
+    email: 'example@gmail.com',
+    location:'Spain',
+    phone:'123 45 67 89',
+    link:'https://github.com/portaTuimil',
+    shortDesc:'A Junior Software Dev',
+    education:'Degree in computer science from the University of Santiago de Compostela, in-depth knowledge of frontend and backend as well as Spanish, English and French. Self-taught in data science and other areas of programming such as scripting and low-level.',
+    experience:'Experience in data management and creation of user interfaces, as well as use of multiple backend technologies in companies such as Netflix and Facebook.'
+  });
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setUser(prevState => ({
+        ...prevState,
+        [name]: value
+    }));
+  };
+
+  //First Page
+  if(selected === 'first'){
+    return(
+      <div className="container">
+        <div className="left-container">
+          <div className="iconSelector">
+            <button onClick={() => setSelected('first')} style={{ background: 'grey', borderRadius: '10px'}}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg></button>
+            <button onClick={() => setSelected('second')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></button>
+            <button onClick={() => setSelected('third')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"/></svg></button>
+          </div>
+        <div className="panel">
+          - Personal Data:
+        </div>
+          <form action="">
+              <label>Name: </label> <input type="text"  value={user.userName} name='userName' onChange={handleChange}/><br></br><br></br>
+              <label>Email: </label> <input type="text"  value={user.email} name='email' onChange={handleChange}/> <br></br><br></br>
+              <label>Location: </label> <input type="text"  value={user.location} name='location' onChange={handleChange}/><br></br><br></br>
+              <label>Phone Nº: </label> <input type="text"  value={user.phone} name='location' onChange={handleChange}/><br></br><br></br>
+              <label>Link: </label> <input type="text"  value={user.link} name='link' onChange={handleChange}/><br></br><br></br>
+              <label>Short Desc.: </label> <input type="text"  value={user.shortDesc} name='shortDesc' onChange={handleChange}/><br></br><br></br>
+          </form>
+        </div>
+        <CurriculumVitae {...user}></CurriculumVitae>
+      </div>
+    )
+  //Second Page
+  }else if(selected === 'second'){
+    return(
+      <div className="container">
+        <div className="left-container">
+          <div className="iconSelector">
+            <button onClick={() => setSelected('first')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg></button>
+            <button onClick={() => setSelected('second')} style={{ background: 'grey', borderRadius: '10px'}}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></button>
+            <button onClick={() => setSelected('third')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"/></svg></button>
+          </div>
+          <div className="panel">
+          - Education:
+          </div>
+          <form action="">
+              <label>Education: </label> <textarea name="education" value={user.education} onChange={handleChange}></textarea><br></br><br></br>
+          </form>
+        </div>
+        <CurriculumVitae {...user}></CurriculumVitae>
+      </div>
+      )
+  //Third Page    
+  }else if(selected === 'third'){
+    return(
+      <div className="container">
+        <div className="left-container">
+          <div className="iconSelector">
+            <button onClick={() => setSelected('first')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg></button>
+            <button onClick={() => setSelected('second')}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></button>
+            <button onClick={() => setSelected('third')} style={{ background: 'grey', borderRadius: '10px'}}><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"/></svg></button>
+          </div>
+          <div className="panel">
+          - Experience:
+          </div>
+          <form action="">
+              <label>Experience: </label> <textarea name="experience" value={user.experience} onChange={handleChange}></textarea><br></br><br></br>
+          </form>
+        </div>
+        <CurriculumVitae {...user}></CurriculumVitae>
+      </div>
+      ) 
+  }
+}
 
 export default App

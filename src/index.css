@@ -45,6 +45,7 @@ nav{
     width: 40%;
     margin: auto;
     padding: 5%;
+    padding-top: 2%;
     box-sizing: border-box;
     -webkit-box-shadow: -3px -3px 33px 1px rgba(0,0,0,0.2);
     -moz-box-shadow: -3px -3px 33px 1px rgba(0,0,0,0.2);
@@ -62,9 +63,35 @@ nav{
     color:#333;
 }
 
+.iconSelector{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.iconSelector> button{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border: none;
+}
+
+.iconSelector> button:hover{
+    cursor: pointer;
+}
+
+.iconSelector> button:hover{
+    cursor: pointer;
+}
+
+button:hover > svg{
+    transform: scale(1.2);
+}
+
 .presentation{
     background-color: white;
-    height: 150px;
+    min-height: 150px;
     width: 90%;
     border-bottom: 2px solid black;
     margin: 5%;
@@ -74,6 +101,7 @@ nav{
 .name{
     font-size: 2.4rem;
     margin-right: 60px;
+    min-width: 60%;
 }
 
 .list{
@@ -100,14 +128,20 @@ input{
     width: 100%;
 }
 
+input:focus{
+    outline: none;
+}
+
 label{
     font-size: 1.6rem;
+    color:#333;
 }
 
 svg{
     vertical-align: middle;
     display: inline-block;
-    margin-right: 4px;
+    margin: auto;
+    fill:#333;
 }
 
 .shortDesc{
@@ -120,6 +154,7 @@ svg{
     width: 90%;
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -133,4 +168,18 @@ svg{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.education{
+    width: 90%;
+    margin-top: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+}
+
+textarea{
+    height: 400px;
+    width: 90%;
+    font-size: 1.2rem;
+    padding: 20px;
 }
