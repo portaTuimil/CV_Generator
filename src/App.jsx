@@ -20,10 +20,10 @@ function Navbar(){
 let x = {}
 function Container(){
   const [user, setUser] = useState({
-    userName: 'Pablo Porta Tuimil',
-    email: 'pabloportatuimil12@gmail.com',
-    location:'Ferrol, Rúa Real',
-    phone:'644 58 24 12',
+    userName: 'Someone',
+    email: 'example@gmail.com',
+    location:'Spain',
+    phone:'123 45 67 89',
     link:'https://github.com/portaTuimil',
     shortDesc:'A Junior Software Dev',
   });
