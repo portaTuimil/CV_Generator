@@ -54,8 +54,8 @@ function Container(){
     phone:'123 45 67 89',
     link:'https://github.com/portaTuimil',
     shortDesc:'A Junior Software Dev',
-    education:'Degree in computer science from the University of Santiago de Compostela, in-depth knowledge of frontend and backend as well as Spanish, English and French. Self-taught in data science and other areas of programming such as scripting and low-level.',
-    experience:'Experience in data management and creation of user interfaces, as well as use of multiple backend technologies in companies such as Netflix and Facebook.'
+    education:'',
+    experience:''
   });
 
   const handleChange = e => {
